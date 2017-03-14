@@ -10,11 +10,9 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 var DepartmentSchema = new Schema();
 
 DepartmentSchema.add({
+    id: Number,
     name: String,
     description: String
-});
-DepartmentSchema.virtual('id').get(function () {
-    return this._id;
 });
 
 var DepartmentModel = mongoose.model('DepartmentModel', DepartmentSchema);
@@ -22,11 +20,12 @@ exports.DepartmentModel = DepartmentModel;
 
 exports.create_department = function ( req, res){
     new DepartmentModel({
+        id: req.body.id,
         name: req.body.name,
         description: req.body.description
     }).save(function(err, department){
         if(!err){
-            console.log("Saved department" + department._id+ department.name);
+            console.log("Saved department" + department.id+ department.name);
             res.send(department);
         } else {
             console.log("Unknown error");
@@ -45,7 +44,7 @@ exports.show_all_departments  = function ( req, res) {
 
 exports.delete_department = function (req,res) {
 DepartmentModel.remove({
-    " _id": req.params.id}, function( err) {
+    "id": req.params.id}, function( err) {
         if(!err){
             console.log("Removed!");
         } else {
@@ -64,10 +63,10 @@ exports.delete_all_departments = function (req,res) {
 };
 exports.get_department_by_id = function(req,res) {
     DepartmentModel.findOne( {
-       "_id": req.params.id
+       "id": req.params.id
     }, function(err,department) {
         if(!err) {
-            console.log("retrieved one department " + department._id);
+            console.log("retrieved one department " + department.id);
             res.send(department);
         }
         else {
@@ -77,12 +76,11 @@ exports.get_department_by_id = function(req,res) {
 }
 
 exports.get_department_by_name = function(req,res) {
-    DepartmentModel.findOne( {
+    DepartmentModel.find( {
         "name": req.params.name
     }, function(err,department) {
-        if(!err) {
-            console.log("retrieved one department " + department.name);
-            res.send(department);
+        if(err) {
+            res.status(500).send(err);
         }
         else {
             console.log(" Department is not retrieved");
@@ -92,12 +90,12 @@ exports.get_department_by_name = function(req,res) {
     });
 }
 exports.get_department_by_description  = function(req,res) {
-    DepartmentModel.findOne( {
+    DepartmentModel.find( {
         "description": req.params.description
     }, function(err,department) {
-        if(!err) {
-            console.log("retrieved one department " + department.description);
-            res.send(department);
+        if(err) {
+            console.log("retrieved one department " );
+            res.status(500).send(err);
         }
         else {
             console.log(" Department is not retrieved");
@@ -110,7 +108,7 @@ exports.get_department_by_description  = function(req,res) {
 
  exports.update_department = function (req,res) {
      DepartmentModel.findOneAndUpdate({
-         "_id": req.body._id
+         "id": req.body.id
      }, { 
          name: req.body.name,
          desciption: req.body.description
