@@ -10,6 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies":{
     "basil.js": "^0.4.3",
     "body-parser": "^1.14.2",
     "brfs": "^1.4.3",
@@ -23,4 +24,5 @@
     "mongoose": "^4.5.1",
     "morgan": "^1.6.1",
     "repair": "^0.1.1"
+}
 }
