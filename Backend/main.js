@@ -4,7 +4,18 @@
  var bodyParser = require('body-parser');
  var mongoose = require('mongoose');
  function configureEndpoints(app){
+     // Get db.js where connection with database is established
      var db = require('./db');
+     app.post('/db/create_department/', db.create_department);
+     app.get('/db/show_all_departments/', db.show_all_departments);
+
+
+     //TO-DO Pages list 
+     //
+     //
+     //
+//If none of the urls are invoked
+     app.use(express.static(path.join(__dirname, '../Frontend/www')));
  }
 
 function startServer(port){

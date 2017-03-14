@@ -17,7 +17,7 @@ DepartmentSchema.add({
 var DepartmentModel = mongoose.model('DepartmentModel', DepartmentSchema);
 exports.DepartmentModel = DepartmentModel;
 
-exports.create = function ( req, res){
+exports.create_department = function ( req, res){
     new DepartmentModel({
         title: req.body.title,
         description: req.body.desciption
@@ -28,6 +28,15 @@ exports.create = function ( req, res){
         } else {
             console.log("Unknown error");
         }
+    })
+};
+exports.show_all_departments  = function ( req, res) {
+    DepartmentModel.find({}, function (err, departments) {
+        if(err) {
+            console.log("Nothing of departmens is retrieved");
+        } else {
+        }
+        res.status(200).send(departments);
     });
 };
 
