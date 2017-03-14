@@ -9,12 +9,12 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var DepartmentSchema = new Schema();
 
-DapertmentSchema.add({
+DepartmentSchema.add({
     id:Number,
     name: String,
     description: String
 });
-var DepartmentModel = mongoose.model('DepartmentModel', DapertmentSchema);
+var DepartmentModel = mongoose.model('DepartmentModel', DepartmentSchema);
 exports.DepartmentModel = DepartmentModel;
 
 exports.create = function ( req, res){

@@ -1,5 +1,5 @@
  var express = require('express');
- var path = require('path'):
+ var path = require('path');
  var morgan = require('morgan');
  var bodyParser = require('body-parser');
  var mongoose = require('mongoose');
