@@ -8,8 +8,13 @@
      var db = require('./db');
      app.post('/db/create_department/', db.create_department);
      app.get('/db/show_all_departments/', db.show_all_departments);
-
-
+     app.get('/db/get_department_by_id/', db.get_department_by_id);
+     app.get('/db/get_department_by_name/', db.get_department_by_name);
+     app.get('db/get_department_by_description/', db.get_department_by_description);
+     app.post('/db/update_department/', db.update_department);
+     app.get('/db/delete_all_departments/',db.delete_all_departments);
+     app.get('/db/delete_department/',db.delete_department);
+     
      //TO-DO Pages list 
      //
      //
