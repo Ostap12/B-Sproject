@@ -8,6 +8,11 @@ var Schema = mongoose.Schema;
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var DepartmentSchema = new Schema();
+var SubDepartmentSchema = new Schema();
+
+var EndUserSchema = new Schema();
+var DocumentSchema = new Schema();
+var NewsItemSchema = new Schema();
 
 DepartmentSchema.add({
     id: Number,
@@ -15,8 +20,53 @@ DepartmentSchema.add({
     description: String
 });
 
+SubDepartmentSchema.add({
+    id: Number,
+    name: String,
+    description: String
+});
+
+EndUserSchema.add({
+    id:Number,
+    username: String,
+    password: String,
+    authphone: String,
+    role: String,
+    firstname: String,
+    lastname: String,
+    hometel: String,
+    mobtel: String,
+    address: String,
+    zip: Number,
+    city: String,
+    country: String,
+    dateOfBirth: Date,
+    startofemployment: Date
+});
+
+NewsItemSchema.add({
+    title: String,
+    content: String,
+    date: Date
+});
+
+
+
+
+
+
 var DepartmentModel = mongoose.model('DepartmentModel', DepartmentSchema);
+var SudDepartmentModel = mongoose.model('SudDepartmentModel',SubDepartmentSchema);
+
+var EndUserModel = mongoose.model('EndUserModel', EndUserSchema);
+var NewsItemModel = mongoose.model('NewsItemModel', NewsItemSchema);
+
+
 exports.DepartmentModel = DepartmentModel;
+exports.SubDepartmentModel = SubDepartmentModel;
+exports.EndUserModel = EndUserModel;
+exports.NewsItemModel = NewsItemModel;
+// Create department
 
 exports.create_department = function ( req, res){
     new DepartmentModel({
@@ -32,6 +82,68 @@ exports.create_department = function ( req, res){
         }
     })
 };
+
+//create subdepartment 
+exports.create_subdepartment = function ( req, res){
+    new SubDepartmentModel({
+        id: req.body.id,
+        name: req.body.name,
+        description: req.body.description
+    }).save(function(err, subdepartment){
+        if(!err){
+            console.log("Saved sub-department" +subdepartment.id+ subdepartment.name);
+            res.send(subdepartment);
+        } else {
+            console.log("Unknown error");
+        }
+    })
+};
+//create enduser 
+exports.enduser = function ( req, res){
+    new EndUserModel({
+        id: req.body.id,
+        username: req.body.username,
+        password: req.body.password,
+        authphone: req.body.authphone,
+        role: req.body.role,
+        firstname: req.body.firstname,
+        secondname: req.body.secondname,
+        hometel: req.body.hometel,
+        mobtel: req.body.mobtel,
+        address: req.body.address,
+        zip: req.body.zip,
+        city:req.body.city,
+        country: req.body.country,
+        date:req.body.date,
+        startofemployment: req.body.startofemployment
+    }).save(function(err, enduser){
+        if(!err){
+            console.log("Saved enduser" +enduser.id+ enduser.username);
+            res.send(enduser);
+        } else {
+            console.log("Unknown error");
+        }
+    })
+};
+//create newsitem 
+exports.newsitem = function ( req, res){
+    new NewsItemModel({
+        id: req.body.id,
+        title: req.body.title,
+        content: req.body.content,
+    date: req.body.date
+    }).save(function(err, newsitem){
+        if(!err){
+            console.log("Saved newsitem" +newsitem.id+ newsitem.title);
+            res.send(newsitem);
+        } else {
+            console.log("Unknown error");
+        }
+    })
+};
+
+
+
 exports.show_all_departments  = function ( req, res) {
     DepartmentModel.find({}, function (err, departments) {
         if(err) {
