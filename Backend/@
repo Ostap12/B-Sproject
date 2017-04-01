@@ -286,21 +286,6 @@ exports.get_enduser_by_id = function(req,res) {
     });
 }
 
-exports.get_enduser_by_password = function(req,res) {
-    EndUserModel.findOne( {
-       "password": req.params.password
-    }, function(err,enduser) {
-        if(!err) {
-            console.log("retrieved one enduser " + enduser.id);
-            res.send(enduser);
-        }
-        else {
-            console.log("Enduser is not retrieved");
-        }
-    });
-}
-
-
 exports.get_newsitem_by_id = function(req,res) {
     NewsItemModel.findOne( {
        "id": req.params.id
@@ -347,47 +332,6 @@ DepartmentModel.remove({
         }res.status(200).send(err);
     });
 };
-
-exports.delete_subdepartment = function (req,res) {
-SubDepartmentModel.remove({
-    "id": req.params.id}, function( err) {
-        if(!err){
-            console.log("Removed!");
-        } else {
-            console.log("Not Removed!");
-        }res.status(200).send(err);
-    });
-};
-exports.delete_enduser = function (req,res) {
-EndUserModel.remove({
-    "id": req.params.id}, function( err) {
-        if(!err){
-            console.log("Removed!");
-        } else {
-            console.log("Not Removed!");
-        }res.status(200).send(err);
-    });
-};
-
-exports.delete_newsitem = function (req,res) {
-NewsItemModel.remove({
-    "id": req.params.id}, function( err) {
-        if(!err){
-            console.log("Removed!");
-        } else {
-            console.log("Not Removed!");
-        }res.status(200).send(err);
-    });
-};
-
-
-
-
-
-
-
-
-
 exports.delete_all_departments = function (req,res) {
     DepartmentModel.remove({}, function(err) {
         if( err) {
@@ -460,83 +404,6 @@ exports.get_department_by_description  = function(req,res) {
          res.send(department);
      });
  };
-
-
- exports.update_subdepartment = function (req,res) {
-     SubDepartmentModel.findOneAndUpdate({
-         "id": req.body.id
-     }, { 
-         name: req.body.name,
-         desciption: req.body.description
-     }, {
-         upsert: false
-     }, function (err, subdepartment) {
-         if(err) {
-             console.log("Did not update");
-         } else { 
-             console.log(req.body._id);
-             console.log("Successfully updated department");
-         }
-         res.send(subdepartment);
-     });
- };
-
-
- exports.update_newsitem = function (req,res) {
-     NewsItemModel.findOneAndUpdate({
-         "id": req.body.id
-     }, { 
-         title: req.body.title,
-         content: req.body.content,
-         date: req.body.date
-     }, {
-         upsert: false
-     }, function (err, newsitem) {
-         if(err) {
-             console.log("Did not update");
-         } else { 
-             console.log(req.body._id);
-             console.log("Successfully updated newsitem");
-         }
-         res.send(newsitem);
-     });
- };
-
-
- exports.update_enduser = function (req,res) {
-     EndUserModel.findOneAndUpdate({
-         "id": req.body.id
-     }, { 
-         username:req.body.username,
-         password: req.body.password,
-         authphone: req.body.authphone,
-         role: req.body.role,
-         lastname: req.body.lastname,
-         hometel: req.body.hometel,
-         mobtel: req.body.mobtel,
-         address: req.body.address,
-         zip: req.body.address,
-         city: req.body.city,
-         country: req.body.country,
-         dateOfBirth: req.body.dateOfBirth,
-         startofemployment: req.body.startofemployment
-     }, {
-         upsert: false
-     }, function (err, enduser) {
-         if(err) {
-             console.log("Did not update");
-         } else { 
-             console.log(req.body._id);
-             console.log("Successfully updated enduser");
-         }
-         res.send(enduser);
-     });
- };
-
-
-
-
-
 
 
 
