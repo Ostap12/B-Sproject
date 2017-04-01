@@ -44,7 +44,9 @@
      "mongodb": "^2.1.18",
      "mongoose": "^4.5.1",
      "morgan": "^1.6.1",
-     "repair": "^0.1.1"
+     "repair": "^0.1.1",
+     "gridfs-stream": "^1.1.1",
+     "graceful-fs": "^4.1.11"
   },
   "keywords": []
 }

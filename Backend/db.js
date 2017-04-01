@@ -1,7 +1,10 @@
-
+var fs = require('graceful-fs');
 var mongoose = require('mongoose');
+var Grid = require('gridfs-stream');
 
-mongoose.connect('mongodb://localhost/test');
+connection = mongoose.connect('mongodb://localhost/test');
+var gfs =Grid(connection.db);
+//Block for savind a  document 
 
 var Schema = mongoose.Schema;
 
@@ -50,7 +53,26 @@ NewsItemSchema.add({
     date: Date
 });
 
-
+exports.putDoc = function(path, name, callback){
+    var writestream = gfs.createWriteStream({
+        filename:name
+    });
+    writestream.on('close',function(files) {
+        callback(null,file);
+    });
+    fs.createReadStremPath(path).pipe(writestream);
+}
+exports.getDoc = function(name,callback){
+    var fs_write_stream = fs.createWriteStream(name);
+    var read_stream = gfs.createReadStream({
+        filename:name
+    });
+    read_stream.pipe(fs_write_stream);
+    fs_write_stream.on('close',function() {
+        calback(null);
+        console.log("File has been written successfully");
+    });
+}
 
 
 
