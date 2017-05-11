@@ -12,7 +12,7 @@
          }
      })
  }
-function(backendPost(url, data,res_data){
+function backendPost(url, data,res_data){
     $.ajax({
         url:API_URL + url, 
         type:'POST',

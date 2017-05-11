@@ -1,9 +1,8 @@
 var fs = require('graceful-fs');
 var mongoose = require('mongoose');
-var Grid = require('gridfs-stream');
+
 
 connection = mongoose.connect('mongodb://localhost/test');
-var gfs =Grid(connection.db);
 //Block for savind a  document 
 
 var Schema = mongoose.Schema;
@@ -85,7 +84,7 @@ var NewsItemModel = mongoose.model('NewsItemModel', NewsItemSchema);
 
 
 exports.DepartmentModel = DepartmentModel;
-exports.SubDepartmentModel = SubDepartmentModel;
+//exports.SubDepartmentModel = SubDepartmentModel;
 exports.EndUserModel = EndUserModel;
 exports.NewsItemModel = NewsItemModel;
 // Create department
@@ -218,7 +217,7 @@ exports.showSortedEndUserByUsernameAsc = function (req, res) {
                         'username': 1
                                 }).exec(function (err, endusers) {
                         if (err) {
-                            console.log("Not retieved endusers"),
+                            console.log("Not retieved endusers")
                                 }else {
                                 }
                         res.status(200).send(endusers);
@@ -236,7 +235,7 @@ exports.showSortedEndUserByCountryAsc = function (req, res) {
                         'city': 1
                                 }).exec(function (err, endusers) {
                         if (err) {
-                            console.log("Not retieved endusers"),
+                            console.log("Not retieved endusers")
                                 }else {
                                 }
                         res.status(200).send(endusers);
@@ -251,7 +250,7 @@ exports.showSortedEndUserByFirstAndSecondName = function (req, res) {
                         'firstname': 1,'secondname':2
                                 }).exec(function (err, endusers) {
                         if (err) {
-                            console.log("Not retieved endusers"),
+                            console.log("Not retieved endusers")
                                 }else {
                                 }
                         res.status(200).send(endusers);
@@ -270,7 +269,7 @@ exports.showNewsItemsByDate = function (req, res) {
                         'date': 1
                                 }).exec(function (err, newsitems) {
                         if (err) {
-                            console.log("Not retieved newsitems"),
+                            console.log("Not retieved newsitems")
                                 }else {
                                 }
                         res.status(200).send(newsitems);
@@ -287,7 +286,7 @@ exports.showNewsItemsByTitle = function (req, res) {
                         'title': 1
                                 }).exec(function (err, newsitems) {
                         if (err) {
-                            console.log("Not retieved newsitems"),
+                            console.log("Not retieved newsitems")
                                 }else {
                                 }
                         res.status(200).send(newsitems);
