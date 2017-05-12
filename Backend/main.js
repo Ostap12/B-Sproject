@@ -14,11 +14,11 @@
      app.post('/db/update_department/', db.update_department);
      app.get('/db/delete_all_departments/',db.delete_all_departments);
      app.get('/db/delete_department/',db.delete_department);
-     
-     //TO-DO Pages list 
-     //
-     //
-     //
+
+     //TO-DO Pages list
+     var pages = require('./pages');
+     app.get('/login', pages.loginPage);
+
 //If none of the urls are invoked
      app.use(express.static(path.join(__dirname, '../Frontend/www')));
  }
@@ -26,11 +26,11 @@
 function startServer(port){
     var app = express();
     app.set('views', path.join(__dirname, 'views'));
-    app.set('view enginse', 'ejs');
+    app.set('view engine', 'ejs');
 
     app.use(morgan('dev'));
     app.use(bodyParser.urlencoded({
-        extended: false 
+        extended: false
     }));
     app.use(bodyParser.json());
 
@@ -42,5 +42,3 @@ function startServer(port){
 }
 
 exports.startServer  = startServer;
-
-

@@ -1,0 +1,17 @@
+#categories {
+    text-align: center;
+    clear: both;
+    a {
+        display: inline-block;
+        color: $font-grey;
+        text-decoration: none;
+        padding: 10px;
+        margin: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        border-bottom: 5px solid rgba($pink, 0);
+    }
+    a:hover {
+        border-bottom: 5px solid $pink;
+    }
+}

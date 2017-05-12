@@ -1,0 +1,43 @@
+.create-form {
+    width: 300px;
+    color: $font-grey;
+}
+
+.form-header {
+    background-color: $background-grey;
+    text-align: center;
+    color: $font-grey;
+    padding: 8px;
+    a {
+        display: block;
+        float: right;
+        color: black;
+        //        float: right;
+    }
+    h2 {
+        margin: 0 0 10px 0;
+        font-weight: bold;
+    }
+}
+
+.form-body {
+    padding: 20px 30px;
+}
+
+.form-footer {
+    background-color: $background-grey;
+    text-align: center;
+    padding: 20px 30px;
+    button {
+        width: 100%;
+        background-color: $blue4;
+        color: white;
+    }
+}
+
+#paycheck_form {
+    .inputfile {
+        margin-bottom: 20px;
+        margin-left: 16px;
+    }
+}

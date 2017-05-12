@@ -1,0 +1,89 @@
+.data-table {
+    width: 100%;
+    text-align: left;
+    
+    thead {
+        background: $thead-grey;
+        color: $thead-font;
+        font-size: 24px;
+    }
+    tbody {
+        color: $font-grey;
+        background-color: white;
+        font-size: 24px;
+        tr {
+            border-bottom: 2px solid $background-grey;
+        }
+    }
+    th {
+        padding: 20px;
+        white-space: nowrap; //TODO this breaks adaptivity
+    }
+    td {
+        padding: 18px;
+    }
+    
+    a {
+        padding: 0;
+        display: inline;
+        border: 4px solid black;
+    }
+}
+
+.col-md-5 {
+    padding: 0;
+}
+
+.col-md-5:nth-child(1) {
+    padding-right: 20px;
+}
+
+.col-md-5:nth-child(2) {
+    padding-right: 20px;
+}
+
+.col-md-1:nth-child(3) {
+    padding: 0;
+    margin-right: 0;
+}
+
+.spending {
+    margin-bottom: 15px;
+}
+
+
+.td-blue-text {
+    color: $blue-table-text;
+}
+
+.new-button {
+//    text-align: right;
+    background: $blue4;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.status-button {
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 60%;
+}
+
+.approved {
+    background: green;
+}
+
+.waiting {
+    background: $blue4;
+}
+
+.denied {
+    background: $pink;
+}

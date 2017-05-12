@@ -1,0 +1,259 @@
+//@import 'constants';
+
+//http://bootsnipp.com/snippets/featured/navigation-sidebar-with-toggle
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#wrapper {
+    padding-left: 70px;
+    transition: all .4s ease 0s;
+    height: 100%
+}
+
+#sidebar-wrapper {
+    margin-left: -150px;
+    left: 70px;
+    width: 150px;
+    background: $blue2;
+    position: fixed;
+    height: 100%;
+    z-index: 10000;
+    transition: all .4s ease 0s;
+}
+
+.sidebar-nav {
+    display: block;
+    float: left;
+    width: 150px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+//#page-content-wrapper {
+//    padding-left: 0;
+//    margin-left: 0;
+//    width: 100%;
+//    height: auto;
+//}
+
+#wrapper.active {
+    padding-left: 150px;
+}
+
+#wrapper.active #sidebar-wrapper {
+    left: 150px;
+}
+
+.active #sidebar-top {
+    padding-top: 5px;
+    margin-bottom: 29px;
+    
+    .logo-span {
+        font-weight: bold;
+        color: white;
+        font-size: 19px;   
+        margin-left: 50px;
+    }
+    
+    a {
+        vertical-align: middle; 
+        color: white;
+        padding-right: 17px;
+        padding-top: 0px;
+        
+//    padding-top: 20px;
+        font-size: 20px;
+    }
+}
+
+#sidebar-top {
+    margin-top: 30px;
+    .logo-span {
+        font-weight: bold;
+        color: white;
+        font-size: 22px;
+        margin-left: 92px;
+    }
+    
+    a {
+        padding-top: 25px;
+        padding-bottom: 35px;
+        vertical-align: middle; 
+        color: white;
+        padding-right: 17px;
+        
+        font-size: 40px;
+    }
+
+    
+}
+
+//#page-content-wrapper {
+//    width: 100%;
+//}
+
+//#sidebar_menu li a,
+.sidebar-nav li a {
+    color: white;
+    display: block;
+    float: left;
+    text-decoration: none;
+    width: 150px;
+//    background: #252525;
+//    border-top: 1px solid #373737;
+//    border-bottom: 1px solid #1A1A1A;
+    -webkit-transition: background .5s;
+    -moz-transition: background .5s;
+    -o-transition: background .5s;
+    -ms-transition: background .5s;
+    transition: background .5s;
+}
+
+.sidebar_name {
+    padding-top: 25px;
+    color: #fff;
+    opacity: .7;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+    text-indent: 20px;
+}
+
+.sidebar-nav li a {
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+
+#sidebar > li a:hover {
+    color: #fff;
+    background: rgba($pink, .8);
+    text-decoration: none;
+    border-left: 5px solid white; 
+}
+
+#sidebar > li a:active,
+#sidebar > li a:focus {
+    text-decoration: none;
+    background-color: $pink;
+}
+
+.sidebar-nav>.sidebar-brand {
+    height: 65px;
+    line-height: 60px;
+    font-size: 18px;
+}
+
+.sidebar-nav>.sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav>.sidebar-brand a:hover {
+    color: white;
+    background: none;
+}
+
+
+.sub_icon {
+//    float: right;
+//    padding-right: 15px;
+//    padding-top: 10px;
+//    font-size: 30px; 
+//    float: right;
+    font-size: 30px;
+    padding-left: 58px;
+    padding-top: 10px;
+
+//    padding-right: 15px;
+//    border: 0px;
+//    margin-left: 50px;
+}
+
+.content-header {
+    height: 65px;
+    line-height: 65px;
+}
+
+.content-header h1 {
+    margin: 0;
+    margin-left: 20px;
+    line-height: 65px;
+    display: inline-block;
+}
+
+
+#sidebar_menu {
+    margin: 10px 0;    
+}
+
+#user-photo img {
+//    width: 100%;
+//    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border: 5px solid $blue4;
+    border-radius: 100%;
+    padding: 5px;
+
+}
+
+#show-info {
+    font-size: 14px;
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: $blue1;
+    padding: 5px 10px;
+    height: 28px;
+    text-align: center;
+    width: 70%;
+    margin: 18px auto;
+}
+
+.active {
+    .sub_icon {
+        font-size:15px;  
+        float: right;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-left: 0;
+//        font-size: 30px; 
+    }
+    
+}
+
+#sidebar > li {
+    text-align: left; 
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+#main-content {
+    background-color: $background-grey;
+    padding-bottom: 30px;
+}
+
+#header {
+    padding: 20px;
+}
+
+.sublist {
+    margin-left: 30px;
+    color: white;
+    border-left: 2px solid $blue3; 
+    
+    li {
+        list-style: none;
+        text-indent: 10px;
+    }
+}
+
+.sublist-hidden {
+    display: none;
+}
