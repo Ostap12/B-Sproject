@@ -13,32 +13,46 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 
+
 </head>
 
-<body>
-    <div id="full-page-image">
+<body class="full-page-image">
+    <div>
         <div class="container">
             <h1 class="brand-name">B&amp;S</h1>
             <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-8 col-lg-4 col-lg-offset-8">
-                <form class="form-horizontal">
+                <form class="form-horizontal" >
                     <div class="form-group">
-                        <img class="user-logo center-block" src="assets/images/icon-user-default.png" alt="user logo" />
-                        <div class="blue-form">
-                            <input type="text" class="form-control" id="input1" placeholder="Username">
-                            <input type="password" class="form-control" id="input2" placeholder="Password">
+
+                        <img id="user-logo" class="center-block" src="assets/images/icon-user-default.png" alt="user logo" />
+                        <div class="form-hiddable">
+
+
+                          <div class="blue-form">
+                              <input id="username" class="form-control" type="text" autofocus  for="username" placeholder="Username">
+                              <input id="password" class="form-control" type="password"  for="password"  placeholder="Password">
+                          </div>
+  <!--                        <label class="blue-text"><input type="checkbox" class value="">Remember password</label>-->
+                          <label class="control control--checkbox blue-text top-label">Remember password
+                            <input type="checkbox" checked="checked"/>
+                            <div class="control__indicator"></div>
+                          </label>
+                          <a href="#" class="blue-text center-block text-center">I forgot my password</a>
+                          <button id="sign-in-button" action="#" type="submit" class="btn pink-btn  center-block">Sign In</button>
                         </div>
-<!--                        <label class="blue-text"><input type="checkbox" class value="">Remember password</label>-->
-                        <label class="control control--checkbox blue-text top-label">Remember password
-                          <input type="checkbox" checked="checked"/>
-                          <div class="control__indicator"></div>
-                        </label>
-                        <a href="#" class="blue-text center-block text-center">I forgot my password</a>
-                        <button type="submit" class="btn pink-btn  center-block">Sign In</button>
+
+                        <div class="form-hiddable hidden">
+                          <input id="email-confirmation" class="form-control" type="text"  for="username" placeholder="Confirmation Code">
+                          <a href="#" class="blue-text center-block text-center">Send again</a>
+                          <button action="#" type="submit" class="btn pink-btn  center-block">Confirm</button>
+                        </div>
+
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script src="assets/js/login.js"></script>
 
 </body>
 

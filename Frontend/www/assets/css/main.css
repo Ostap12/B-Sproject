@@ -183,7 +183,7 @@
   font-weight: 600;
   margin-bottom: 0; }
 
-.user-logo {
+#user-logo {
   border-radius: 50%;
   border: 7px solid white;
   width: 140px;
@@ -198,14 +198,14 @@
   border: 3px solid #003e7d;
   border-radius: 10px;
   margin-top: 50px; }
-  .blue-form #input1 {
+  .blue-form #username {
     text-align: center;
     border: none;
     border-bottom: 1px solid #009ae5;
     border-radius: 10px 10px 0 0;
     height: 65px;
     font-size: 25px; }
-  .blue-form #input2 {
+  .blue-form #password {
     text-align: center;
     border: none;
     border-top: 1px solid #009ae5;
@@ -218,10 +218,12 @@
   font-weight: 100; }
 
 .pink-btn {
+  margin-top: 18px;
   margin-bottom: 38px;
   background-color: #ff0043;
   color: white;
   width: 60%;
+  min-width: 220px;
   height: 60px;
   font-weight: bold;
   font-size: 25px;
@@ -240,6 +242,14 @@
 ::-moz-placeholder {
   text-align: center;
   font-weight: bold; }
+
+#email-confirmation {
+  border: 3px solid #003e7d;
+  text-align: center;
+  border-radius: 10px;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 50px; }
 
 input[type=checkbox] {
   position: absolute;
@@ -289,7 +299,7 @@ input[type=checkbox] {
       border-color: #7B7B7B; }
 
 @media (min-width: 992px) {
-  #full-page-image {
+  .full-page-image {
     background-image: url("../images/welcome-background.png");
     background-size: 1200px 680px;
     background-repeat: no-repeat; }
@@ -491,3 +501,5 @@ input:-webkit-input-placeholder {
 .padding-0 {
   padding-left: 0;
   padding-right: 0; }
+
+/*# sourceMappingURL=main.css.map */
