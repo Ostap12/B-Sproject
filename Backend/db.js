@@ -1,6 +1,7 @@
 var fs = require('graceful-fs');
-var mongoose = require('mongoose');
-
+var mongoose = require('mongoose'),Schema=mongoose.Schema,passportLocalMongoose=require('passport-local-mongoose');
+var passport       = require('passport');
+var LocalStrategy  = require('passport-local').Strategy;
 
 connection = mongoose.connect('mongodb://localhost/test');
 //Block for savind a  document 
@@ -13,6 +14,7 @@ var DepartmentSchema = new Schema();
 var SubDepartmentSchema = new Schema();
 
 var EndUserSchema = new Schema();
+EndUserSchema.plugin(passportLocalMongoose);
 var DocumentSchema = new Schema();
 var NewsItemSchema = new Schema();
 
@@ -30,7 +32,7 @@ SubDepartmentSchema.add({
 
 EndUserSchema.add({
     id:Number,
-    username: String,
+ //   username: String,
     password: String,
     authphone: String,
     role: String,
@@ -553,6 +555,22 @@ exports.get_department_by_description  = function(req,res) {
          res.send(enduser);
      });
  };
+
+
+passport.use(new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+}, function(username, password,done){
+  EndUser.findOne({ username : username},function(err,user){
+    return err 
+      ? done(err)
+      : user
+        ? password === user.password
+          ? done(null, user)
+          : done(null, false, { message: 'Incorrect password.' })
+        : done(null, false, { message: 'Incorrect username.' });
+  });
+}));
 
 
 
