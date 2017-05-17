@@ -20,6 +20,27 @@ const news = [
 	}
 ]
 
+// user simulation
+const user =
+{
+    id: 12117,
+    username: '@tomhardy',
+    password: 'dsfd32rf',
+    authphone: '0971894185',
+    role: 'Fronend',
+    firstname: 'Tom',
+    lastname: 'Hardy',
+    hometel: '0971894185',
+    mobtel: '0971894185',
+    address: 'Dankevycha 23',
+    zip: '41018',
+    city: 'Ipsum',
+    country: 'Redania',
+    dateOfBirth: '18-05-1991',
+    startofemployment: 'employed'
+}
+
+
 exports.loginPage = function(req, res){
 		res.render('loginPage.ejs', {
 			pageTitle: 'Login page'
@@ -29,7 +50,7 @@ exports.loginPage = function(req, res){
 exports.homePage = function(req, res){
 		res.render('homePage.ejs',
 		{
-			pageTitle: 'Home',
+			user: user,
 			news: news
 		});
 	};

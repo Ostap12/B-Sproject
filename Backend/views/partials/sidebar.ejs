@@ -13,11 +13,11 @@
 
   <a id='show-info' href="#">Show info ►</a>
   <table class="user-info-table table-hidden">
-    <tr><td>Name</td><td>Oleh Smeltsov</td></tr>
-    <tr><td>ID</td><td>74855</td></tr>
-    <tr><td>Email</td><td>@usermaul</td></tr>
-    <tr><td>Phone</td><td>0974274187</td></tr>
-    <tr><td>Address</td><td>Prorizna 18</td></tr>
+    <tr><td>Name</td><td><%= user.firstname %> <%= user.lastname %></td></tr>
+    <tr><td>ID</td><td><%= user.id %></td></tr>
+    <tr><td>Email</td><td><%= user.username %></td></tr>
+    <tr><td>Phone</td><td><%= user.authphone %></td></tr>
+    <tr><td>Address</td><td><%= user.address %></td></tr>
   </table>
 
   <ul class="sidebar-nav" id="sidebar">
