@@ -50,20 +50,20 @@
 .active #sidebar-top {
     padding-top: 5px;
     margin-bottom: 29px;
-    
+
     .logo-span {
         font-weight: bold;
         color: white;
-        font-size: 19px;   
+        font-size: 19px;
         margin-left: 50px;
     }
-    
+
     a {
-        vertical-align: middle; 
+        vertical-align: middle;
         color: white;
         padding-right: 17px;
         padding-top: 0px;
-        
+
 //    padding-top: 20px;
         font-size: 20px;
     }
@@ -77,18 +77,18 @@
         font-size: 22px;
         margin-left: 92px;
     }
-    
+
     a {
         padding-top: 25px;
         padding-bottom: 35px;
-        vertical-align: middle; 
+        vertical-align: middle;
         color: white;
         padding-right: 17px;
-        
+
         font-size: 40px;
     }
 
-    
+
 }
 
 //#page-content-wrapper {
@@ -133,7 +133,7 @@
     color: #fff;
     background: rgba($pink, .8);
     text-decoration: none;
-    border-left: 5px solid white; 
+    border-left: 5px solid white;
 }
 
 #sidebar > li a:active,
@@ -162,7 +162,7 @@
 //    float: right;
 //    padding-right: 15px;
 //    padding-top: 10px;
-//    font-size: 30px; 
+//    font-size: 30px;
 //    float: right;
     font-size: 30px;
     padding-left: 58px;
@@ -187,7 +187,7 @@
 
 
 #sidebar_menu {
-    margin: 10px 0;    
+    margin: 10px 0;
 }
 
 #user-photo img {
@@ -216,18 +216,18 @@
 
 .active {
     .sub_icon {
-        font-size:15px;  
+        font-size:15px;
         float: right;
         padding-right: 15px;
         padding-top: 10px;
         padding-left: 0;
-//        font-size: 30px; 
+//        font-size: 30px;
     }
-    
+
 }
 
 #sidebar > li {
-    text-align: left; 
+    text-align: left;
 }
 
 .container-fluid {
@@ -246,8 +246,8 @@
 .sublist {
     margin-left: 30px;
     color: white;
-    border-left: 2px solid $blue3; 
-    
+    border-left: 2px solid $blue3;
+
     li {
         list-style: none;
         text-indent: 10px;
@@ -256,4 +256,25 @@
 
 .sublist-hidden {
     display: none;
+}
+
+.table-hidden {
+    display: none;
+}
+
+
+.user-info-table {
+  background-color: $blue1;
+  margin: 0 4px;
+  font-size: 12px;
+  td {
+    padding: 2px 4px;
+  }
+  td:first-child {
+    color: white;
+  }
+  td:nth-child(2) {
+    // padding-left: 4px;
+    color: #DDD;
+  }
 }

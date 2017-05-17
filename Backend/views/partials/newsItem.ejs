@@ -1,0 +1,26 @@
+<div class="news-item clearfix">
+
+  <div class="dropdown pull-right">
+    <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+    <span class="options glyphicon glyphicon-option-vertical"></span></a>
+    <ul class="dropdown-menu pull-right">
+      <li><a href="/edit_news_item">Edit</a></li>
+      <li><a href="/delete_news_item">Delete</a></li>
+    </ul>
+  </div>
+
+  <p class="datetime text-right"><%= newsItem.date %></p>
+
+  <div class="row">
+    <div class="col-sm-1 col-md-1 hidden-xs padding-0">
+      <img class="news-image" src="assets/images/news-item-image.png" alt="">
+    </div>
+    <div class="col-sm-11 col-md-11 padding-0">
+      <div class="news">
+        <h4 class="news-title"><%= newsItem.title %></h4>
+        <p class="news-content"><%= newsItem.content%> </p>
+        <a class="pink-link pull-right" href="#">READ ➤</a>
+      </div>
+    </div>
+  </div>
+</div>

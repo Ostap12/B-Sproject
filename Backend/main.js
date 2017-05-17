@@ -7,7 +7,7 @@
  function configureEndpoints(app){
      // Get db.js where connection with database is established
      var db = require('./db');
-     
+
      app.post('/db/create_department/', db.create_department);
      app.get('/db/show_all_departments/', db.show_all_departments);
      app.get('/db/get_department_by_id/', db.get_department_by_id);
@@ -17,15 +17,15 @@
      app.get('/db/delete_all_departments/',db.delete_all_departments);
      app.get('/db/delete_department/',db.delete_department);
 
-     //TO-DO Pages list
      var pages = require('./pages');
      app.get('/login', pages.loginPage);
+     app.get('/home', pages.homePage);
      // Middlewares, которые должны быть определены до passport:
-     
+
     //  app.use(express.bodyParser());
-     
+
 // Passport:
-      
+
 
 //If none of the urls are invoked
      app.use(express.static(path.join(__dirname, '../Frontend/www')));
@@ -48,7 +48,7 @@ function startServer(port){
    // app.use(express.session({ secret: 'SECRET' }));
     app.use(passport.initialize());
       app.use(passport.session());
- 
+
 
     configureEndpoints(app);
 

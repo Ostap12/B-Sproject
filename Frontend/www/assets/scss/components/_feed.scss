@@ -5,33 +5,38 @@
     padding-bottom: 11px;
     padding-right: 10px;
     margin: 2px;
-    color: #8f9dab;    
-    
+    color: #8f9dab;
+
     .datetime {
         font-size: 16px;
     }
-    
+
+    .options {
+      font-size: 26px;
+      color: black;
+    }
+
     .news-image {
         padding-left: 12%;
     }
-    
+
     .news {
         padding-left: 2.8%;
     }
-    
+
     .news-title {
         margin: 0px;
         font-size: 24px;
         font-weight: bold;
     }
-    
+
     .news-content {
         font-size: 18px;
     }
-    
+
     .pink-link {
         color: $pink;
         font-size: 18px;
     }
-    
+
 }
