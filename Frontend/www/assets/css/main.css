@@ -500,13 +500,23 @@ input:-webkit-input-placeholder {
   text-align: center;
   padding: 20px 30px; }
   .form-footer button {
-    width: 100%;
-    background-color: #009ae5;
+    width: 100%; }
+
+.form-button {
+  background-color: #009ae5;
+  color: white;
+  font-weight: bold; }
+  .form-button:hover {
     color: white; }
-    .form-footer button:hover {
-      color: white; }
-    .form-footer button:focus {
-      color: white; }
+  .form-button:focus {
+    color: white; }
+
+.center-image {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin-top: 30px;
+  margin-bottom: 30px; }
 
 #paycheck_form .inputfile {
   margin-bottom: 20px;

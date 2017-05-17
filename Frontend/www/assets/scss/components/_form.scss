@@ -30,17 +30,28 @@
     padding: 20px 30px;
     button {
         width: 100%;
-        background-color: $blue4;
-        color: white;
-        &:hover {
-          color: white;
-        }
-        &:focus {
-          color: white;
-        }
-
     }
+}
 
+.form-button {
+
+  background-color: $blue4;
+  color: white;
+  font-weight: bold;
+  &:hover {
+    color: white;
+  }
+  &:focus {
+    color: white;
+  }
+}
+
+.center-image {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #paycheck_form {
