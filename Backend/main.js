@@ -20,6 +20,17 @@
      app.get('/db/get_enduser_by_id/',db.get_enduser_by_id);
      
      app.post('/db/create_user/', db.create_enduser);
+    
+     
+     
+     app.use(passport.initialize());
+app.use(passport.session());
+//var EndUser = require('./db/endusermodel/');
+
+//passport.use(new LocalStrategy(EndUser.authenticate()));
+//passport.serializeUser(Account.serializeUser());
+//passport.deserializeUser(Account.deserializeUser());
+
 
      
      var pages = require('./pages');
