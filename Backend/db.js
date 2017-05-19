@@ -33,8 +33,8 @@ SubDepartmentSchema.add({
 EndUserSchema.add({
 //    id:Number,
  //   username: String,
-    employee_id:String,
-    password: String,
+    employee_id: { type: String,unique: true, required : true, dropDups: true  },
+    password: { type: String, unique: true,required : true, dropDups: true  },
     email: String,
     authphone: String,
     position: String,
@@ -125,12 +125,12 @@ exports.create_subdepartment = function ( req, res){
 //create enduser 
 exports.create_enduser = function (req, res){
     new EndUserModel({
-    id:req.body.id,
+    employee_id:req.body.employee_id,
     password: req.body.password,
     email: req.body.email,
     authphone: req.body.authphone,
     position: req.body.position,
-    name: req.body.name,
+    username: req.body.username,
     address: req.body.address,
     postal_code: req.body.postal_code,
     place: req.body.place
@@ -296,7 +296,7 @@ exports.get_enduser_by_id = function(req,res) {
        "id": req.params.id
     }, function(err,enduser) {
         if(!err) {
-            console.log("retrieved one enduser " + enduser.id);
+            console.log("retrieved one enduser " + enduser._id);
             res.send(enduser);
         }
         else {
@@ -306,10 +306,10 @@ exports.get_enduser_by_id = function(req,res) {
 }
 
 exports.get_enduser_by_password = function(req,res) {
-    EndUserModel.findOne( {
+    EndUserModel.findOne({
        "password": req.params.password
     }, function(err,enduser) {
-        if(!err) {
+        if(!err && !enduser) {
             console.log("retrieved one enduser " + enduser.id);
             res.send(enduser);
         }

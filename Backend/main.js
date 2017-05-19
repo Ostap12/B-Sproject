@@ -17,9 +17,12 @@
      app.get('/db/delete_all_departments/',db.delete_all_departments);
      app.get('/db/delete_department/',db.delete_department);
      
-     app.get('/db/get_enduser_by_id/',db.get_enduser_by_id);
-     
+   
      app.post('/db/create_user/', db.create_enduser);
+     
+     app.get('/db/get_enduser_by_id',db.get_enduser_by_id);
+     
+     app.get('/db/get_enduser_by_password',db.get_enduser_by_password);
     
      
      
