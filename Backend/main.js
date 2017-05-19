@@ -16,8 +16,15 @@
      app.post('/db/update_department/', db.update_department);
      app.get('/db/delete_all_departments/',db.delete_all_departments);
      app.get('/db/delete_department/',db.delete_department);
+     
+     app.get('/db/get_enduser_by_id/',db.get_enduser_by_id);
+     
+     app.post('/db/create_user/', db.create_enduser);
 
+     
      var pages = require('./pages');
+     
+     
      app.get('/login', pages.loginPage);
      app.get('/home', pages.homePage);
      // Middlewares, которые должны быть определены до passport:

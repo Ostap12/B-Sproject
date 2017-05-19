@@ -53,3 +53,12 @@ exports.delete_department = function (res_data) {
     backendGet( '/db/delete_department', res_data);
 };
 
+exports.get_enduser_by_id = function(res_data){
+    backendGet('/db/get_enduser_by_id/',res_data);
+};
+
+exports.create_enduser = function(data,res_data){
+     backendPost('/db/create_department/', data,res_data);
+    
+}
+

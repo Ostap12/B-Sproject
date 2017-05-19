@@ -31,21 +31,19 @@ SubDepartmentSchema.add({
 });
 
 EndUserSchema.add({
-    id:Number,
+//    id:Number,
  //   username: String,
+    id:String,
     password: String,
+    email: String,
     authphone: String,
-    role: String,
-    firstname: String,
-    lastname: String,
-    hometel: String,
-    mobtel: String,
+    position: String,
+    name: String,
     address: String,
-    zip: Number,
-    city: String,
-    country: String,
-    dateOfBirth: Date,
-    startofemployment: Date
+    postal_code: Number,
+   
+    place: String
+    
 });
 
 NewsItemSchema.add({
@@ -122,29 +120,24 @@ exports.create_subdepartment = function ( req, res){
     })
 };
 //create enduser 
-exports.enduser = function ( req, res){
+exports.create_enduser = function (req, res){
     new EndUserModel({
-        id: req.body.id,
-        username: req.body.username,
-        password: req.body.password,
-        authphone: req.body.authphone,
-        role: req.body.role,
-        firstname: req.body.firstname,
-        secondname: req.body.secondname,
-        hometel: req.body.hometel,
-        mobtel: req.body.mobtel,
-        address: req.body.address,
-        zip: req.body.zip,
-        city:req.body.city,
-        country: req.body.country,
-        date:req.body.date,
-        startofemployment: req.body.startofemployment
+    id:req.body.id,
+    password: req.body.password,
+    email: req.body.email,
+    authphone: req.body.authphone,
+    position: req.body.position,
+    name: req.body.name,
+    address: req.body.address,
+    postal_code: req.body.postal_code,
+    place: req.body.place
+    
     }).save(function(err, enduser){
         if(!err){
-            console.log("Saved enduser" +enduser.id+ enduser.username);
+            console.log("Saved enduser" +enduser.id+ enduser.name + enduser.email+ enduser.authphone+ enduser.position+enduser.address+ enduser.lace);
             res.send(enduser);
         } else {
-            console.log("Unknown error");
+            console.log(err);
         }
     })
 };
