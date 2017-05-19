@@ -1,7 +1,7 @@
 var fs = require('graceful-fs');
-var mongoose = require('mongoose'),Schema=mongoose.Schema,passportLocalMongoose=require('passport-local-mongoose');
-var passport       = require('passport');
-var LocalStrategy  = require('passport-local').Strategy;
+var mongoose =require('mongoose'); //require('mongoose'),Schema=mongoose.Schema,passportLocalMongoose=require('passport-local-mongoose');
+//var passport       = require('passport');
+//var LocalStrategy  = require('passport-local').Strategy;
 
 connection = mongoose.connect('mongodb://localhost/test');
 //Block for savind a  document 
@@ -14,7 +14,7 @@ var DepartmentSchema = new Schema();
 var SubDepartmentSchema = new Schema();
 
 var EndUserSchema = new Schema();
-EndUserSchema.plugin(passportLocalMongoose);
+//EndUserSchema.plugin(passportLocalMongoose);
 var DocumentSchema = new Schema();
 var NewsItemSchema = new Schema();
 
@@ -33,14 +33,14 @@ SubDepartmentSchema.add({
 EndUserSchema.add({
 //    id:Number,
  //   username: String,
-    id:String,
+    employee_id:String,
     password: String,
     email: String,
     authphone: String,
     position: String,
     name: String,
     address: String,
-    postal_code: Number,
+    postal_code: String,
    
     place: String
     
@@ -134,7 +134,7 @@ exports.create_enduser = function (req, res){
     
     }).save(function(err, enduser){
         if(!err){
-            console.log("Saved enduser" +enduser.id+ enduser.name + enduser.email+ enduser.authphone+ enduser.position+enduser.address+ enduser.lace);
+            console.log("Saved enduser"+enduser._id + enduser.name + enduser.email+ enduser.authphone+ enduser.position+enduser.address+ enduser.place);
             res.send(enduser);
         } else {
             console.log(err);
@@ -550,7 +550,7 @@ exports.get_department_by_description  = function(req,res) {
  };
 
 
-passport.use(new LocalStrategy({
+/*passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
 }, function(username, password,done){
@@ -563,7 +563,7 @@ passport.use(new LocalStrategy({
           : done(null, false, { message: 'Incorrect password.' })
         : done(null, false, { message: 'Incorrect username.' });
   });
-}));
+})); */
 
 
 
