@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>B&amp;S</title>
+
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+
+</head>
+
+<body>
+  <div id="wrapper" class="active">
+
+    <%- include('partials/sidebar') %>
+
+      <!-- Page content -->
+      <div class="container-fluid">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content">
+          <%- include('partials/header') %>
+
+
+            <div id="categories">
+              <a class="category" href="/personal_contract">Contract</a>
+              <a class="category" href="/personal_function">Function Details</a>
+              <a class="category" href="/personal_declarations">Declarations</a>
+            </div>
+
+            <%- include('partials/forms/declarationForm') %>
+
+              <div id="main-content" class="row">
+
+
+                <div id="personal-contract">
+                  <div class="row table-control">
+                    <div class="col-md-2">
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Table
+                                                     <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Chart</a></li>
+                          <li><a href="#">Table</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-md-offset-2">
+                      <input class="form-control" id="date" name="date1" type="text" placeholder="Pick date" />
+                    </div>
+
+                    <script>
+                      $(document).ready(function() {
+                        var date_input = $('input[name="date1"]'); //our date input has the name "date"
+                        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                        var options = {
+                          format: 'dd/mm/yyyy',
+                          container: container,
+                          todayHighlight: true,
+                          autoclose: true,
+                        };
+                        date_input.datepicker(options);
+                      })
+                    </script>
+                    <button type="button" class="new-button pull-right" data-toggle="modal" data-target="#declarationModal">+ New Declaration</button>
+                  </div>
+
+                  <div class="row">
+                    <table class="data-table">
+                      <thead>
+                        <tr>
+                          <th>Destination</th>
+                          <th>Spendings</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="td-blue-text">London</td>
+                          <td>Food</td>
+                          <td class="td-blue-text">$180</td>
+                          <td><button type="button" class="status-button waiting">WAITING</button></td>
+                        </tr>
+                        <tr>
+                          <td class="td-blue-text">Budapest</td>
+                          <td>Hotel</td>
+                          <td class="td-blue-text">$1584</td>
+                          <td><button type="button" class="status-button denied">DENIED</button></td>
+                        </tr>
+                        <tr>
+                          <td class="td-blue-text">Frankfurt</td>
+                          <td>Flight</td>
+                          <td class="td-blue-text">$79</td>
+                          <td><button type="button" class="status-button approved">APPROVED</button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="assets/js/sidebar.js"></script>
+</body>
+
+</html>

@@ -41,6 +41,9 @@ app.use(passport.session());
      
      app.get('/login', pages.loginPage);
      app.get('/home', pages.homePage);
+     app.get('/personal_contract', pages.personalContract);
+     app.get('/personal_function', pages.personalFunction);
+     app.get('/personal_declarations', pages.personalDeclarations);
      // Middlewares, которые должны быть определены до passport:
 
     //  app.use(express.bodyParser());
