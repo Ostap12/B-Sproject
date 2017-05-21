@@ -17,15 +17,20 @@
      app.get('/db/delete_all_departments/',db.delete_all_departments);
      app.get('/db/delete_department/',db.delete_department);
      
-   
      app.post('/db/create_user/', db.create_enduser);
-     
+
+    //TODO rework redirect login from db.js to main.js
+    //  app.post('/db/create_user/', function(req, res) {
+    //    db.create_enduser;
+    //    res.redirect('/home');
+    //  });
+
      app.get('/db/get_enduser_by_id',db.get_enduser_by_id);
-     
+
      app.get('/db/get_enduser_by_password',db.get_enduser_by_password);
-    
-     
-     
+
+
+
      app.use(passport.initialize());
 app.use(passport.session());
 //var EndUser = require('./db/endusermodel/');
@@ -35,10 +40,10 @@ app.use(passport.session());
 //passport.deserializeUser(Account.deserializeUser());
 
 
-     
+
      var pages = require('./pages');
-     
-     
+
+
      app.get('/login', pages.loginPage);
      app.get('/home', pages.homePage);
      app.get('/personal_contract', pages.personalContract);

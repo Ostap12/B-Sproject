@@ -42,7 +42,11 @@
                       <img class="pull-left" src="assets/images/icon-flash.png" alt="news image">
                       <p>News</p>
                     </div>
-
+                    <% if(true){ %>
+                      //TODO if admin
+                      <%- include('partials/forms/createUserForm') %>
+                      <button type="button" class="new-button pull-right" data-toggle="modal" data-target="#createUserForm" style="margin-left:20px;" >+ Add user</button>
+                    <% } %>
                     <button type="button" class="new-button pull-right" data-toggle="modal" data-target="#myModal" >+ Create news</button>
                     <%- include('partials/forms/newsForm') %>
                   </div>

@@ -4,7 +4,7 @@ var passport       = require('passport');
 var LocalStrategy  = require('passport-local').Strategy;
 
 connection = mongoose.connect('mongodb://localhost/test');
-//Block for savind a  document 
+//Block for savind a  document
 
 var Schema = mongoose.Schema;
 
@@ -41,9 +41,9 @@ EndUserSchema.add({
     username: String,
     address: String,
     postal_code: String,
-   
+
     place: String
-    
+
 });
 
 EndUserSchema.plugin(passportLocalMongoose);
@@ -107,7 +107,7 @@ exports.create_department = function ( req, res){
     })
 };
 
-//create subdepartment 
+//create subdepartment
 exports.create_subdepartment = function ( req, res){
     new SubDepartmentModel({
         id: req.body.id,
@@ -122,7 +122,7 @@ exports.create_subdepartment = function ( req, res){
         }
     })
 };
-//create enduser 
+//create enduser
 exports.create_enduser = function (req, res){
     new EndUserModel({
     employee_id:req.body.employee_id,
@@ -134,17 +134,18 @@ exports.create_enduser = function (req, res){
     address: req.body.address,
     postal_code: req.body.postal_code,
     place: req.body.place
-    
+
     }).save(function(err, enduser){
         if(!err){
             console.log("Saved enduser"+enduser._id + enduser.name + enduser.email+ enduser.authphone+ enduser.position+enduser.address+ enduser.place);
-            res.send(enduser);
+            // res.send(enduser);
+            return res.redirect("/home");
         } else {
             console.log(err);
         }
     })
 };
-//create newsitem 
+//create newsitem
 exports.newsitem = function ( req, res){
     new NewsItemModel({
         id: req.body.id,
@@ -162,7 +163,7 @@ exports.newsitem = function ( req, res){
 };
 
 
-//show all departments 
+//show all departments
 exports.show_all_departments  = function ( req, res) {
     DepartmentModel.find({}, function (err, departments) {
         if(err) {
@@ -173,7 +174,7 @@ exports.show_all_departments  = function ( req, res) {
     });
 };
 
-//show all subdepartments 
+//show all subdepartments
 exports.show_all_subdepartments  = function ( req, res) {
     SubDepartmentModel.find({}, function (err, subdepartments) {
         if(err) {
@@ -184,7 +185,7 @@ exports.show_all_subdepartments  = function ( req, res) {
     });
 };
 
-//show all endusers 
+//show all endusers
 exports.show_all_endusers  = function ( req, res) {
     EndUserModel.find({}, function (err, endusers) {
         if(err) {
@@ -195,7 +196,7 @@ exports.show_all_endusers  = function ( req, res) {
     });
 };
 
-//show all newsitems 
+//show all newsitems
 exports.show_all_newsitems = function ( req, res) {
     NewsItemModel.find({}, function (err, newsitems) {
         if(err) {
@@ -206,7 +207,7 @@ exports.show_all_newsitems = function ( req, res) {
     });
 };
 
-// show all sorted users by name 
+// show all sorted users by name
 
 
 exports.showSortedEndUserByUsernameAsc = function (req, res) {
@@ -224,7 +225,7 @@ exports.showSortedEndUserByUsernameAsc = function (req, res) {
 
 
 
-// show all sorted users by city 
+// show all sorted users by city
 
 
 exports.showSortedEndUserByCountryAsc = function (req, res) {
@@ -239,7 +240,7 @@ exports.showSortedEndUserByCountryAsc = function (req, res) {
                         res.status(200).send(endusers);
             });
 }
-// show all sorted users by firstname and secondname 
+// show all sorted users by firstname and secondname
 
 
 exports.showSortedEndUserByFirstAndSecondName = function (req, res) {
@@ -464,7 +465,7 @@ exports.get_department_by_description  = function(req,res) {
  exports.update_department = function (req,res) {
      DepartmentModel.findOneAndUpdate({
          "id": req.body.id
-     }, { 
+     }, {
          name: req.body.name,
          desciption: req.body.description
      }, {
@@ -472,7 +473,7 @@ exports.get_department_by_description  = function(req,res) {
      }, function (err, department) {
          if(err) {
              console.log("Did not update");
-         } else { 
+         } else {
              console.log(req.body._id);
              console.log("Successfully updated department");
          }
@@ -484,7 +485,7 @@ exports.get_department_by_description  = function(req,res) {
  exports.update_subdepartment = function (req,res) {
      SubDepartmentModel.findOneAndUpdate({
          "id": req.body.id
-     }, { 
+     }, {
          name: req.body.name,
          desciption: req.body.description
      }, {
@@ -492,7 +493,7 @@ exports.get_department_by_description  = function(req,res) {
      }, function (err, subdepartment) {
          if(err) {
              console.log("Did not update");
-         } else { 
+         } else {
              console.log(req.body._id);
              console.log("Successfully updated department");
          }
@@ -504,7 +505,7 @@ exports.get_department_by_description  = function(req,res) {
  exports.update_newsitem = function (req,res) {
      NewsItemModel.findOneAndUpdate({
          "id": req.body.id
-     }, { 
+     }, {
          title: req.body.title,
          content: req.body.content,
          date: req.body.date
@@ -513,7 +514,7 @@ exports.get_department_by_description  = function(req,res) {
      }, function (err, newsitem) {
          if(err) {
              console.log("Did not update");
-         } else { 
+         } else {
              console.log(req.body._id);
              console.log("Successfully updated newsitem");
          }
@@ -525,7 +526,7 @@ exports.get_department_by_description  = function(req,res) {
  exports.update_enduser = function (req,res) {
      EndUserModel.findOneAndUpdate({
          "id": req.body.id
-     }, { 
+     }, {
          username:req.body.username,
          password: req.body.password,
          authphone: req.body.authphone,
@@ -544,7 +545,7 @@ exports.get_department_by_description  = function(req,res) {
      }, function (err, enduser) {
          if(err) {
              console.log("Did not update");
-         } else { 
+         } else {
              console.log(req.body._id);
              console.log("Successfully updated enduser");
          }
@@ -558,7 +559,7 @@ passport.use(new LocalStrategy({
   passwordField: 'password'
 }, function(username, password,done){
   EndUser.findOne({ username : username},function(err,user){
-    return err 
+    return err
       ? done(err)
       : user
         ? password === user.password
@@ -566,13 +567,4 @@ passport.use(new LocalStrategy({
           : done(null, false, { message: 'Incorrect password.' })
         : done(null, false, { message: 'Incorrect username.' });
   });
-})); 
-
-
-
-
-
-
-
-
-
+}));
