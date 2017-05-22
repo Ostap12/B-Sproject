@@ -16,7 +16,7 @@
      app.post('/db/update_department/', db.update_department);
      app.get('/db/delete_all_departments/',db.delete_all_departments);
      app.get('/db/delete_department/',db.delete_department);
-     
+
      app.post('/db/create_user/', db.create_enduser);
 
     //TODO rework redirect login from db.js to main.js
@@ -49,6 +49,8 @@ app.use(passport.session());
      app.get('/personal_contract', pages.personalContract);
      app.get('/personal_function', pages.personalFunction);
      app.get('/personal_declarations', pages.personalDeclarations);
+     app.get('/paychecks', pages.salaryPaychecks);
+     app.get('/regular_payments', pages.salaryRegularPayments);
      // Middlewares, которые должны быть определены до passport:
 
     //  app.use(express.bodyParser());

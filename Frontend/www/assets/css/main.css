@@ -459,6 +459,9 @@ input:-webkit-input-placeholder {
 .denied {
   background: #ff0043; }
 
+.download-button {
+  border: none !important; }
+
 #categories {
   text-align: center;
   clear: both; }
@@ -521,8 +524,7 @@ input:-webkit-input-placeholder {
   margin-bottom: 20px; }
 
 #paycheck_form .inputfile {
-  margin-bottom: 20px;
-  margin-left: 16px; }
+  margin: 12px 0; }
 
 .modal {
   text-align: center;

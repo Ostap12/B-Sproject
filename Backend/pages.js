@@ -69,3 +69,15 @@ exports.personalDeclarations = function(req, res) {
     user: user
   });
 };
+
+exports.salaryPaychecks = function(req, res) {
+  res.render('salary/paychecks.ejs', {
+    user: user
+  });
+};
+
+exports.salaryRegularPayments = function(req, res) {
+  res.render('salary/regularPayments.ejs', {
+    user: user
+  });
+};
