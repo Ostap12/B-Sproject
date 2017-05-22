@@ -1,0 +1,52 @@
+<div id="paycheckModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <form id="paycheck_form" class="create-form">
+        <div class="form-header">
+          <div class="clearfix">
+            <a href="#" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+          </div>
+          <h2>New Paycheck</h2>
+        </div>
+        <div class="form-body">
+          <div class="form-group">
+            <label>No.</label>
+            <input type="text" class="form-control" name="id" placeholder="01123">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" name="description" rows="3"></textarea>
+          </div>
+          <!--            https://formden.com/blog/date-picker-->
+          <div class="form-group">
+            <label for="exampleInputFile">Date</label>
+            <input class="form-control" id="date" name="date_created" type="text" />
+            <script>
+              $(document).ready(function() {
+                var date_input = $('input[name="date_created"]');
+                var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                var options = {
+                  format: 'dd/mm/yyyy',
+                  container: container,
+                  todayHighlight: true,
+                  autoclose: true,
+                };
+                date_input.datepicker(options);
+              })
+            </script>
+          </div>
+          <div class="row">
+            <input type="file" name="file" class="inputfile">
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="btn form-button">Create</button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>

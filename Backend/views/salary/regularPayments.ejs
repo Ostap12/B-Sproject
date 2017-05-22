@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>B&amp;S</title>
+
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+
+</head>
+
+<body>
+  <div id="wrapper" class="active">
+
+    <%- include('../partials/sidebar') %>
+
+      <!-- Page content -->
+      <div class="container-fluid">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content">
+          <%- include('../partials/header') %>
+
+            <%- include('categories') %>
+              <%- include('../partials/forms/regularPaymentForm') %>
+
+                <div id="main-content" class="row">
+
+                  <div id="personal-contract">
+                    <div class="row">
+                      <button type="button" class="new-button table-control pull-right" data-toggle="modal" data-target="#regularPaymentModal">+ New Payment</button>
+                    </div>
+
+                    <div class="row">
+                      <table class="data-table">
+                        <thead>
+                          <tr>
+                            <th>No.</th>
+                            <th>Description</th>
+                            <th>Date created</th>
+                            <th>Paid</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>00101</td>
+                            <td>Business trip to Kyiv</td>
+                            <td>01/01/15 (AP)</td>
+                            <td class="blue-text">$1280</td>
+                          </tr>
+                          <tr>
+                            <td>00102</td>
+                            <td>descr 1</td>
+                            <td>01/01/15 (AP)</td>
+                            <td class="blue-text">$1280</td>
+                          </tr>
+                          <tr>
+                            <td>00103</td>
+                            <td>descr</td>
+                            <td>01/01/15 (AP)</td>
+                            <td class="blue-text">$1280</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="assets/js/sidebar.js"></script>
+</body>
+
+</html>
