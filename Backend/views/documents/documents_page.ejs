@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>B&amp;S</title>
+
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="assets/js/dropzone.js"></script>
+
+
+</head>
+
+<body>
+  <div id="wrapper" class="active">
+
+    <%- include('../partials/sidebar') %>
+
+      <!-- Page content -->
+      <div class="container-fluid">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content">
+          <%- include('../partials/header') %>
+
+            <div id="main-content" class="row">
+              <div id="documents">
+
+                <div class="col-md-3" id="folders">
+                  <h3>Folders</h3>
+
+                  <%- include('folder_item') %>
+                  <%- include('folder_item') %>
+                  <%- include('folder_item') %>
+
+                </div>
+
+                <div class="col-md-9" id="files">
+                  <h3>Files</h3>
+
+
+
+                  <div class="files-body">
+                    <div class="row">
+                      <%- include('file_item') %>
+                      <%- include('file_item') %>
+                      <%- include('file_item') %>
+                    </div>
+
+                  <div class="row">
+                    <form action="/file-upload"
+                    class="dropzone"
+                    id="my-awesome-dropzone"></form>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="assets/js/sidebar.js"></script>
+</body>
+
+</html>

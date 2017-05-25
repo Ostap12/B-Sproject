@@ -51,6 +51,9 @@ app.use(passport.session());
      app.get('/personal_declarations', pages.personalDeclarations);
      app.get('/paychecks', pages.salaryPaychecks);
      app.get('/regular_payments', pages.salaryRegularPayments);
+     app.get('/documents', pages.documents);
+     app.get('/schedule', pages.agendaSchedule);
+     app.get('/days_off', pages.agendaDaysOff);
      // Middlewares, которые должны быть определены до passport:
 
     //  app.use(express.bodyParser());

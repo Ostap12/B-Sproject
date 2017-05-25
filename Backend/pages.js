@@ -81,3 +81,21 @@ exports.salaryRegularPayments = function(req, res) {
     user: user
   });
 };
+
+exports.documents = function(req, res) {
+  res.render('documents/documents_page.ejs', {
+    user: user
+  });
+};
+
+exports.agendaSchedule = function(req, res) {
+  res.render('agenda/schedule_page.ejs', {
+    user: user
+  });
+};
+
+exports.agendaDaysOff = function(req, res) {
+  res.render('agenda/days_off_page.ejs', {
+    user: user
+  });
+};

@@ -1,0 +1,14 @@
+#documents {
+  margin: 0 5%;
+}
+
+.files-body {
+  background: white;
+  overflow: auto;
+  padding: 20px;
+}
+
+.dropzone {
+  margin: 20px;
+  border: 2px dashed $blue3 !important;
+}

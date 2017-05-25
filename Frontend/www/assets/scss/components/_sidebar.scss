@@ -1,6 +1,10 @@
 //@import 'constants';
 
 //http://bootsnipp.com/snippets/featured/navigation-sidebar-with-toggle
+body {
+  background-color: $background-grey;
+}
+
 .row {
     margin-left: 0px;
     margin-right: 0px;
@@ -240,7 +244,8 @@
 }
 
 #header {
-    padding: 20px;
+  background: white;
+  padding: 20px;
 }
 
 .sublist {
